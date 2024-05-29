@@ -7,14 +7,15 @@ export default class App extends Component {
     super (props);
     this.state = {
       categoria_id:"",
-      categorias: []
+      categorias: [],
+      productos: []
     }
 
   }
 
   buscarCategorias () {
-  //const url ="https://productos.ctpoba.edu.ar/api/categorias"
-  const url ="http://10.0.4.103:3000/api/categorias"
+  const url ="https://productos.ctpoba.edu.ar/api/categorias"
+  // const url ="http://10.0.4.103:3000/api/categorias"
   axios.get(url)
   .then((resp) => {
     this.setState ({categorias: resp.data.categorias})
@@ -58,7 +59,7 @@ render () {
     <h3>{this.state.categoria_id}</h3>
     {this.state.productos.map((prod, i) =>
     <span key = {prod.id}> {prod.nombre} </span>
-  )}
+    )}
 </div>
   )
 }
