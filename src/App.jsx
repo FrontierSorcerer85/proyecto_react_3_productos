@@ -14,8 +14,8 @@ export default class App extends Component {
   }
 
   buscarCategorias () {
-  const url ="https://productos.ctpoba.edu.ar/api/categorias"
-  // const url ="http://10.0.4.103:3000/api/categorias"
+  // const url ="https://productos.ctpoba.edu.ar/api/categorias"
+  const url ="http://10.0.4.103:3000/api/categorias"
   axios.get(url)
   .then((resp) => {
     this.setState ({categorias: resp.data.categorias})
@@ -45,7 +45,7 @@ render () {
       <span> App </span>
       <input 
       type="button" 
-      value="buscar cat" 
+      value="buscar categorias" 
       onClick={()=>this.buscarCategorias()}
       />
     <select
@@ -61,6 +61,6 @@ render () {
     <span key = {prod.id}> {prod.nombre} </span>
     )}
 </div>
-  )
+  )  
 }
 }
